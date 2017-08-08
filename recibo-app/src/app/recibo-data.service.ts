@@ -8,8 +8,8 @@ export class ReciboDataService {
   // automatic incrementing of id's
   lastId: number = 0;
 
-  // Placeholder for todo's
-  todos: Todo[] = [];
+  // Placeholder for recibo's
+  recibos: Recibo[] = [];
 
   constructor() {
   }

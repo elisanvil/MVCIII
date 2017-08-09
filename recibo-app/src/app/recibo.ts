@@ -1,10 +1,10 @@
 export class Recibo {
-  num: number;
+  id: number;
   company: string = '';
-  service: string='Agua Potable';
+  service: string='';
   time: number;
   deuda: string='';
-  sumary: string='Pagado';
+  sumary: string='';
 
   constructor(values: Object = {}) {
     Object.assign(this, values);

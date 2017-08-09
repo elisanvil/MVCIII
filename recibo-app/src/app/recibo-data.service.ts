@@ -16,12 +16,45 @@ export class ReciboDataService {
 
   // Simulate POST /Recibos
   addRecibo(recibo: Recibo): ReciboDataService {
-    if (!recibo.num) {
-      recibo.num = ++this.lastId;
+    if (!recibo.id) {
+      recibo.id = ++this.lastId;
     }
     this.recibos.push(recibo);
     return this;
   }
+
+  // Simulate DELETE /recibos/:id
+  deleteReciboById(id: number): ReciboDataService {
+    this.recibos = this.recibos
+      .filter(recibo => recibo.id !== id);
+    return this;
+  }
+
+  // Simulate PUT /recibos/:id
+  updateReciboById(id: number, values: Object = {}): Recibo {
+    let recibo = this.getReciboById(id);
+    if (!recibo) {
+      return null;
+    }
+    Object.assign(recibo, values);
+    return recibo;
+  }
+
+  // Simulate GET /recibos
+  getAllRecibos(): Recibo[] {
+    return this.recibos;
+  }
+
+  // Simulate GET /recibos/:id
+  getReciboById(id: number): Recibo {
+    return this.recibos
+      .filter(recibo => recibo.id === id)
+      .pop();
+  }
+
+  // Toggle recibo complete
+  
+
 
   
 

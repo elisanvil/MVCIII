@@ -8,7 +8,7 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
-    }).compileComponents();
+    });
   }));
 
   it('should create the app', async(() => {

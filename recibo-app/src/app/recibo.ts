@@ -2,7 +2,7 @@ export class Recibo {
   id: number;
   company: string = '';
   service: string='';
-  time: number;
+  time: Date;
   deuda: string='';
   sumary: string='';
 

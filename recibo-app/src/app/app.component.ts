@@ -5,7 +5,7 @@ import {Recibo} from './recibo';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
-  providers: [ReciboDataService]
+  providers: []
 })
 export class AppComponent {
   newRecibo: Recibo= new Recibo();

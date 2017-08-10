@@ -1,27 +1,34 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
+<div>
   <h1>
-    {{title}}
+    Recibos
   </h1>
-  
-  <section class="recibo" *ngFor="let recibo of recibos">
-    {{recibo.id}}
-    {{recibo.company}}
-    {{recibo.service}}
-    {{recibo.time}}
+  <section class="new-recibo">
+    <input class="new-company" type="text" placeholder="Nombre de la empresa" autofocus="" [(ngModel)]="newRecibo.company" >
+    <input class="new-servicio" type="text" placeholder="Servicio" autofocus="" [(ngModel)]="newRecibo.service" >
+    <input class="new-time" type="date" placeholder="Fecha de Pago" autofocus="" [(ngModel)]="newRecibo.time" >
+    <input class="new-deuda" type="text" placeholder="Pago" autofocus="" [(ngModel)]="newRecibo.deuda" >
+    <button class="create" (click)="addRecibo()">Add</button>
+  </section>
+  <br />
+  <section class="recibo" *ngIf="recibos.length > 0 ">
+    <ul class="recibo-list">
+      <li *ngFor="let recibo of recibos">
+        <div class="view">
+          <ul>
+            <li>Numero: {{recibo.id}}</li>
+            <li>Empresa: {{recibo.company}}</li>
+            <li>Servicio: {{recibo.service}}</li>
+            <li>Fecha: {{recibo.time}}</li>
+            <li>Pago: {{recibo.deuda}}</li>
+          </ul>
+          <button class="destroy" (click)="removeRecibo(recibo)">Remover</button>
+        </div>
+      </li>
+      
+    </ul>
+    
   </section>
   
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
 

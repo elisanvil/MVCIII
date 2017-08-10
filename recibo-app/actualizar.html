@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+  <meta charset="UTF-8">
+  <meta name="descripcion" content="Sitio web para llevar un control de las facturas del hogar">
+  <meta name="keywords" content="facturas">
+  <title>Control Manual de Facturas</title>
+
+<body>
+  <h2>Control de Recibos</h2>
+  <h4>Actualizar recibo</h4>
+
+  
+            <ul>
+            <li>Numero: {{recibo.id}}</li>
+            <li>Empresa: {{recibo.company}}</li>
+            <li>Servicio: {{recibo.service}}</li>
+            <li>Fecha: {{recibo.time}}</li>
+            <li>Pago: {{recibo.deuda}}</li>
+          </ul>
+
+ <FORM action="" method="post">
+    <p>
+    <LABEL for="num">Numero de recibo: </LABEL>
+              <INPUT type="n" id="numero"><br />
+    <LABEL for="company" max-length="16">Nombre de la Empresa: </LABEL>
+              <INPUT type="text" id="company"><br />
+    <LABEL for="service">Tipo de servicios: </LABEL>
+   <select name="service">
+     <option>Agua Potable</option>
+     <option>Luz Eléctrica</option>
+     <option>Teléfono</option>
+   </select>
+   <br />
+   <br />
+   <LABEL for="time">Fecha: </LABEL>
+              <INPUT type="date" id="time">
+                <br />
+                <br />
+    <LABEL for="debt">Pago: </LABEL>
+              <INPUT type="text" id="deuda">
+                <br />
+                <br />
+    </p>
+    
+      
+  </form>
+ </FORM>
+ 
+
+</body>
+</html>

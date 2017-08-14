@@ -52,9 +52,14 @@ export class ReciboDataService {
       .pop();
   }
 
-  // Toggle recibo complete
-  
-
+  // Check recibo
+  checkReciboById(id: number): boolean {
+    let recibo = this.getReciboById(id);
+    if (!recibo) {
+      return false;
+    }
+    return true;
+  }
 
   
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import {ReciboDataService} from './recibo-data.service';
 import {Recibo} from './recibo'; 
 @Component({
@@ -8,8 +8,16 @@ import {Recibo} from './recibo';
   providers: []
 })
 export class AppComponent {
+  @Input() update: boolean;
   newRecibo: Recibo= new Recibo();
+  
   constructor(private reciboDataService: ReciboDataService) {
+    this.update = false;
+  }
+
+  wantUpdate() { 
+    this.update = !this.update; 
+    
   }
 
   addRecibo() {
@@ -20,6 +28,10 @@ export class AppComponent {
   
   removeRecibo(recibo) {
     this.reciboDataService.deleteReciboById(recibo.id);
+  }
+
+  updateRecibo(recibo, values) {
+    this.reciboDataService.updateReciboById(recibo.id, values);
   }
 
   get recibos() {

@@ -1,17 +1,27 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div>
   <h1>
-    Recibos
+    CONTROL DE RECIBOS
   </h1>
+  <br />
+  <!--Add nuevo recibo.-->
   <section class="new-recibo">
+    <h2>Nuevo</h2>
     <input class="new-company" type="text" placeholder="Nombre de la empresa" autofocus="" [(ngModel)]="newRecibo.company" >
-    <input class="new-servicio" type="text" placeholder="Servicio" autofocus="" [(ngModel)]="newRecibo.service" >
-    <input class="new-time" type="date" placeholder="Fecha de Pago" autofocus="" [(ngModel)]="newRecibo.time" >
+    <select class="new-service" type="text" placeholder="Tipo de Servicio" value="Servicio" autofocus="" [(ngModel)]="newRecibo.service" >
+     <option>Agua Potable</option>
+     <option>Luz Eléctrica</option>
+     <option>Teléfono</option>
+    </select>
+    <input class="new-time" type="date" placeholder="" autofocus="" [(ngModel)]="newRecibo.time" >
     <input class="new-deuda" type="text" placeholder="Pago" autofocus="" [(ngModel)]="newRecibo.deuda" >
     <button class="create" (click)="addRecibo()">Add</button>
   </section>
   <br />
+  <br />
+  <!--Lista de recibos creados.-->
   <section class="recibo" *ngIf="recibos.length > 0 ">
+    <h2>Lista</h2>
     <ul class="recibo-list">
       <li *ngFor="let recibo of recibos">
         <div class="view">
@@ -23,9 +33,22 @@
             <li>Pago: {{recibo.deuda}}</li>
           </ul>
           <button class="destroy" (click)="removeRecibo(recibo)">Remover</button>
+          <button class="update" (click)="wantUpdate()">Cambiar</button>
+        </div>
+        <!--Sólo cuanndo quiera actializar recibo.-->
+        <div ng-app="myRecibo" *ngIf="update">
+          <input class="new-company" type="text" placeholder="Nombre de la empresa" value="{{recibo.company}}" ng-model="new-company">
+          <select class="new-service" type="text" placeholder="Tipo de Servicio" value="{{recibo.service}}" ng-model="new-service">
+           <option>Agua Potable</option>
+           <option>Luz Eléctrica</option>
+           <option>Teléfono</option>
+          </select>
+          <input class="new-time" type="date" placeholder="" value="{{recibo.time}}" ng-model="new-time">
+          <input class="new-deuda" type="text" placeholder="Pago" value="{{recibo.deuda}}" ng-model="new-deuda">
+          <button class="update" (click)="updateRecibo(recibo,valu)">Actualizar</button>
         </div>
       </li>
-      
+      <br />
     </ul>
     
   </section>
